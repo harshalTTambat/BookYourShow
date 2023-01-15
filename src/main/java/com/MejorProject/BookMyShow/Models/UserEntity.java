@@ -28,8 +28,6 @@ public class UserEntity {
     @Column(nullable = false, unique = true)
     private String mobileNo;
 
-   // private List<TicketEntity> ticketList;
-
     @CreationTimestamp
     @Temporal(value = TemporalType.TIMESTAMP) // timestamp for both date and time
     private Date createdOn;
