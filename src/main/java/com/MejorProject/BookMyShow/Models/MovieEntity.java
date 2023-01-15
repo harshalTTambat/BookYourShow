@@ -3,6 +3,7 @@ package com.MejorProject.BookMyShow.Models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Table(name = "Movies")
 @Data
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor
 public class MovieEntity {
 
@@ -27,10 +29,7 @@ public class MovieEntity {
 
     private Date releaseDate;
 
-    //private List<MovieEntity> movieList;
-
     @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL)
     private List<ShowEntity> showsList;
-
 
 }

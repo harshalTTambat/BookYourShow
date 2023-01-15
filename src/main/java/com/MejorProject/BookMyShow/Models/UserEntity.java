@@ -2,6 +2,7 @@ package com.MejorProject.BookMyShow.Models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,7 +15,9 @@ import java.util.List;
 @Table(name = "Users")
 @Data
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor
+
 
 public class UserEntity {
 
@@ -27,6 +30,9 @@ public class UserEntity {
 
     @Column(nullable = false, unique = true)
     private String mobileNo;
+
+    @Column(nullable = false, unique = true)
+    private String email;
 
     @CreationTimestamp
     @Temporal(value = TemporalType.TIMESTAMP) // timestamp for both date and time

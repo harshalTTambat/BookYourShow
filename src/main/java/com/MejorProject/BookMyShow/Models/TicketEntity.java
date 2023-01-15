@@ -26,7 +26,7 @@ public class TicketEntity {
 
     @ManyToOne
     @JoinColumn
-    private User user;
+    private UserEntity user;
 
     @ManyToOne
     @JoinColumn

@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 import lombok.Data;
 
 @Data
+
 public class UserRequestDto {
 
     @Column(nullable = false)
@@ -12,4 +13,7 @@ public class UserRequestDto {
 
     @Column(nullable = false, unique = true)
     private String mobileNo;
+
+    @Column(nullable = false, unique = true)
+    private String email;
 }

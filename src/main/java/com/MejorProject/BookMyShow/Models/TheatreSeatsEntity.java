@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Theatre_seats")
+@Table(name = "Theatre_Seats")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +18,7 @@ public class TheatreSeatsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false, columnDefinition = "seat_no")
+    @Column(nullable = false)
     private String seatNo;
 
     @Enumerated(value = EnumType.STRING)
@@ -30,4 +30,9 @@ public class TheatreSeatsEntity {
     @JoinColumn
     private TheatreEntity theatre;
 
+    public TheatreSeatsEntity(String seatNo, SeatType seatType, int rate) {
+        this.seatNo = seatNo;
+        this.seatType = seatType;
+        this.rate = rate;
+    }
 }
