@@ -1,11 +1,11 @@
-package com.MejorProject.BookMyShow.Services;
+package com.MejorProject.BookYourShow.Services;
 
-import com.MejorProject.BookMyShow.Enums.SeatType;
-import com.MejorProject.BookMyShow.Models.TheatreEntity;
-import com.MejorProject.BookMyShow.Models.TheatreSeatsEntity;
-import com.MejorProject.BookMyShow.Repository.TheatreRepository;
-import com.MejorProject.BookMyShow.Repository.TheatreSeatsRepository;
-import com.MejorProject.BookMyShow.RequestDTO.TheatreRequestDto;
+import com.MejorProject.BookYourShow.Enums.SeatType;
+import com.MejorProject.BookYourShow.Models.TheatreEntity;
+import com.MejorProject.BookYourShow.Models.TheatreSeatsEntity;
+import com.MejorProject.BookYourShow.Repository.TheatreRepository;
+import com.MejorProject.BookYourShow.Repository.TheatreSeatsRepository;
+import com.MejorProject.BookYourShow.RequestDTO.TheatreRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

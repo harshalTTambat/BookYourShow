@@ -1,8 +1,8 @@
-package com.MejorProject.BookMyShow.Services;
+package com.MejorProject.BookYourShow.Services;
 
-import com.MejorProject.BookMyShow.Models.MovieEntity;
-import com.MejorProject.BookMyShow.Repository.MovieRepository;
-import com.MejorProject.BookMyShow.RequestDTO.MovieRequestDto;
+import com.MejorProject.BookYourShow.Models.MovieEntity;
+import com.MejorProject.BookYourShow.Repository.MovieRepository;
+import com.MejorProject.BookYourShow.RequestDTO.MovieRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

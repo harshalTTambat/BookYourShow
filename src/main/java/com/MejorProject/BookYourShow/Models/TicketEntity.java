@@ -1,10 +1,9 @@
-package com.MejorProject.BookMyShow.Models;
+package com.MejorProject.BookYourShow.Models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.catalina.User;
 
 import java.util.Date;
 import java.util.List;

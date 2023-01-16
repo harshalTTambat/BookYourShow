@@ -1,6 +1,6 @@
-package com.MejorProject.BookMyShow.Repository;
+package com.MejorProject.BookYourShow.Repository;
 
-import com.MejorProject.BookMyShow.Models.MovieEntity;
+import com.MejorProject.BookYourShow.Models.MovieEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

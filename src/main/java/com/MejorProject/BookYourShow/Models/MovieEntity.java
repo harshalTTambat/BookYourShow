@@ -1,4 +1,4 @@
-package com.MejorProject.BookMyShow.Models;
+package com.MejorProject.BookYourShow.Models;
 
 
 import jakarta.persistence.*;

@@ -1,4 +1,4 @@
-package com.MejorProject.BookMyShow.Enums;
+package com.MejorProject.BookYourShow.Enums;
 
 public enum SeatType {
 

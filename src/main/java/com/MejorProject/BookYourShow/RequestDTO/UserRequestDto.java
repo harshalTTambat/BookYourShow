@@ -1,4 +1,4 @@
-package com.MejorProject.BookMyShow.RequestDTO;
+package com.MejorProject.BookYourShow.RequestDTO;
 
 
 import jakarta.persistence.Column;

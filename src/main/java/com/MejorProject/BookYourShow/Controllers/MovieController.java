@@ -1,8 +1,8 @@
-package com.MejorProject.BookMyShow.Controllers;
+package com.MejorProject.BookYourShow.Controllers;
 
 
-import com.MejorProject.BookMyShow.RequestDTO.MovieRequestDto;
-import com.MejorProject.BookMyShow.Services.MovieService;
+import com.MejorProject.BookYourShow.RequestDTO.MovieRequestDto;
+import com.MejorProject.BookYourShow.Services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

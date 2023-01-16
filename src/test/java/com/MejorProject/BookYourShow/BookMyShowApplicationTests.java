@@ -1,4 +1,4 @@
-package com.MejorProject.BookMyShow;
+package com.MejorProject.BookYourShow;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
