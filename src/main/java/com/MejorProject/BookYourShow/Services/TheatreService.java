@@ -54,41 +54,36 @@ public class TheatreService {
         List<TheatreSeatsEntity> seatsList = new ArrayList<>();
 
         // by simply creating object of the TheatreSeatsEntity
-        TheatreSeatsEntity theatreSeats1 = new TheatreSeatsEntity("1A", SeatType.SILVER,100);
-        TheatreSeatsEntity theatreSeats2 = new TheatreSeatsEntity("1B", SeatType.SILVER,100);
-        TheatreSeatsEntity theatreSeats3 = new TheatreSeatsEntity("1C", SeatType.SILVER,100);
-        TheatreSeatsEntity theatreSeats4 = new TheatreSeatsEntity("1D", SeatType.SILVER,100);
-        TheatreSeatsEntity theatreSeats5 = new TheatreSeatsEntity("1E", SeatType.SILVER,100);
-
-        TheatreSeatsEntity theatreSeats6 = new TheatreSeatsEntity("2A", SeatType.GOLD,200);
-        TheatreSeatsEntity theatreSeats7 = new TheatreSeatsEntity("2B", SeatType.GOLD,200);
-        TheatreSeatsEntity theatreSeats8 = new TheatreSeatsEntity("2C", SeatType.GOLD,200);
-        TheatreSeatsEntity theatreSeats9 = new TheatreSeatsEntity("2D", SeatType.GOLD,200);
-        TheatreSeatsEntity theatreSeats10 = new TheatreSeatsEntity("2E", SeatType.GOLD,200);
-
-        TheatreSeatsEntity theatreSeats11 = new TheatreSeatsEntity("3A", SeatType.PLATINUM,300);
-        TheatreSeatsEntity theatreSeats12 = new TheatreSeatsEntity("3B", SeatType.PLATINUM,300);
-        TheatreSeatsEntity theatreSeats13 = new TheatreSeatsEntity("3C", SeatType.PLATINUM,300);
-        TheatreSeatsEntity theatreSeats14 = new TheatreSeatsEntity("3D", SeatType.PLATINUM,300);
-        TheatreSeatsEntity theatreSeats15 = new TheatreSeatsEntity("3E", SeatType.PLATINUM,300);
-
-        seatsList.add(theatreSeats1);
-        seatsList.add(theatreSeats2);
-        seatsList.add(theatreSeats3);
-        seatsList.add(theatreSeats4);
-        seatsList.add(theatreSeats5);
-        seatsList.add(theatreSeats6);
-        seatsList.add(theatreSeats7);
-        seatsList.add(theatreSeats8);
-        seatsList.add(theatreSeats9);
-        seatsList.add(theatreSeats10);
-        seatsList.add(theatreSeats11);
-        seatsList.add(theatreSeats12);
-        seatsList.add(theatreSeats13);
-        seatsList.add(theatreSeats14);
-        seatsList.add(theatreSeats15);
+        int totalSeats = 15;
+        int TypeOfSeats=3;
+        for (int i=0;i<totalSeats/TypeOfSeats;i++)
+        {
+           char ch = (char) ('A'+i);
+           String seatNo = "1"+ch;
+           TheatreSeatsEntity theatreSeats = new TheatreSeatsEntity(seatNo,SeatType.SILVER,100);
+           seatsList.add(theatreSeats);
+        }
+        for (int i=0;i<totalSeats/TypeOfSeats;i++)
+        {
+            char ch = (char) ('A'+i);
+            String seatNo = "2"+ch;
+            TheatreSeatsEntity theatreSeats = new TheatreSeatsEntity(seatNo,SeatType.GOLD,100);
+            seatsList.add(theatreSeats);
+        }
+        for (int i=0;i<totalSeats/TypeOfSeats;i++)
+        {
+            char ch = (char) ('A'+i);
+            String seatNo = "3"+ch;
+            TheatreSeatsEntity theatreSeats = new TheatreSeatsEntity(seatNo,SeatType.PLATINUM,100);
+            seatsList.add(theatreSeats);
+        }
 
         return seatsList;
 
     }
+    public TheatreEntity findById(int id)
+    {
+        return theatreRepository.findById(id).get();
+    }
+
 }

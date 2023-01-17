@@ -28,4 +28,8 @@ public class MovieService {
         }
         return "Successfully added movie";
     }
+    public MovieEntity findByName(String name)
+    {
+        return movieRepository.findByName(name);
+    }
 }
