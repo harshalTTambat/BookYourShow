@@ -1,14 +1,16 @@
 package com.MejorProject.BookYourShow.Services;
 
-import com.MejorProject.BookYourShow.Models.MovieEntity;
-import com.MejorProject.BookYourShow.Models.ShowEntity;
-import com.MejorProject.BookYourShow.Models.TheatreEntity;
+import com.MejorProject.BookYourShow.Models.*;
 import com.MejorProject.BookYourShow.Repository.MovieRepository;
 import com.MejorProject.BookYourShow.Repository.ShowRepository;
+import com.MejorProject.BookYourShow.Repository.ShowSeatRepository;
 import com.MejorProject.BookYourShow.Repository.TheatreRepository;
 import com.MejorProject.BookYourShow.RequestDTO.ShowRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ShowService {
@@ -19,21 +21,55 @@ public class ShowService {
     MovieRepository movieRepository;
     @Autowired
     TheatreRepository theatreRepository;
+
+    @Autowired
+    ShowSeatRepository showSeatRepository;
     public void addShow(ShowRequestDto showRequestDto)
     {
+        // creating show object
+        ShowEntity show = ShowEntity.builder().
+                showDate(showRequestDto.getShowDate()).
+                showTime(showRequestDto.getShowTime()).
+                multiplier(showRequestDto.getMultiplier()).
+                build();
+
         // for setting movieName & TheatreID
         // need to get movieRepository & get TheatreRepository
 
         MovieEntity movie = movieRepository.findByName(showRequestDto.getMovieName());
         TheatreEntity theatre = theatreRepository.findById(showRequestDto.getTheatreId()).get();
-// creating show object
-        ShowEntity show = new ShowEntity();
-        show.setShowDate(showRequestDto.getShowDate());
-        show.setShowTime(showRequestDto.getShowTime());
-        show.setMovie(movie);
+
         show.setTheatre(theatre);
+        show.setMovie(movie);
 
+        // for setting show seats
+        //because when we are adding the show , it should be set
+        List<ShowSeatsEntity> showSeatsEntityList = createShowSeats(theatre.getTheatreSeatsList());
+        show.setShowSeatsList(showSeatsEntityList);
+
+        // for each show seat --> we need to mark that it is belonged to which show(foreign key)
+        for (ShowSeatsEntity showSeats: showSeatsEntityList)
+        {
+            showSeats.setShow(show);
+        }
         showRepository.save(show);
+        return;
+    }
+    public List<ShowSeatsEntity> createShowSeats(List<TheatreSeatsEntity> theatreSeatsEntities)
+    {
+       // creating show seats which is replica of theatre seats
+       // seats number and parameters we will get from theatre seats
 
+        List<ShowSeatsEntity> showSeatsList = new ArrayList<>();
+        for(TheatreSeatsEntity theatreSeats : theatreSeatsEntities)
+        {
+            ShowSeatsEntity showSeatsEntity = ShowSeatsEntity.builder().
+                    seatNo(theatreSeats.getSeatNo()).
+                    seatType(theatreSeats.getSeatType()).
+                    build();
+            showSeatsList.add(showSeatsEntity);
+        }
+        showSeatRepository.saveAll(showSeatsList);
+        return showSeatsList;
     }
 }

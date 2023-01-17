@@ -3,6 +3,7 @@ package com.MejorProject.BookYourShow.Models;
 import com.MejorProject.BookYourShow.Enums.SeatType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 @Table(name = "show_seats")
 @Data
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor
 
 // the virtual seats while booking tickets

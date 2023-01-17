@@ -2,6 +2,7 @@ package com.MejorProject.BookYourShow.Models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -16,6 +17,7 @@ import java.util.List;
 @Table(name = "Shows")
 @Data
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor
 public class ShowEntity {
 
@@ -26,6 +28,8 @@ public class ShowEntity {
     private LocalDate showDate;
 
     private LocalTime showTime;
+
+    private double multiplier;
 
     @CreationTimestamp
     private Date createdOn;

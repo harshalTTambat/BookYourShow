@@ -18,4 +18,6 @@ public class ShowRequestDto {
 
     private int theatreId;
 
+    private double multiplier;
+
 }
