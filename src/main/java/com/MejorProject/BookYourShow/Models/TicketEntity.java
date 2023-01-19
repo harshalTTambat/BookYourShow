@@ -12,7 +12,7 @@ import java.util.List;
 @Table(name = "Ticket")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+
 public class TicketEntity {
 
     @Id
@@ -20,7 +20,7 @@ public class TicketEntity {
     private int id;
 
     private String allowed_seats;
-    private int amount;
+    private double amount;
     private Date booked_on;
 
     @ManyToOne

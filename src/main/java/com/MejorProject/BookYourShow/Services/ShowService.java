@@ -34,13 +34,17 @@ public class ShowService {
                 build();
 
         // for setting movieName & TheatreID
-        // need to get movieRepository & get TheatreRepository
-
+        // movie & theatre entity needed
+        //getting from movieRepository & get TheatreRepository
         MovieEntity movie = movieRepository.findByName(showRequestDto.getMovieName());
         TheatreEntity theatre = theatreRepository.findById(showRequestDto.getTheatreId()).get();
-
         show.setTheatre(theatre);
         show.setMovie(movie);
+
+        // for Bidirectional mapping
+        // Optional things
+        movie.getShowsList().add(show);
+        theatre.getListOfShows().add(show);
 
         // for setting show seats
         //because when we are adding the show , it should be set
@@ -52,7 +56,11 @@ public class ShowService {
         {
             showSeats.setShow(show);
         }
-        showRepository.save(show);
+        movieRepository.save(movie);
+        theatreRepository.save(theatre);
+        // this will automatically save show
+        //showRepository.save(show);
+        // this does not need to do because show is child of movie and its bidirectional mapping
 
     }
     public List<ShowSeatsEntity> createShowSeats(List<TheatreSeatsEntity> theatreSeatsEntities)
