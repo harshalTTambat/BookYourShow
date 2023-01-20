@@ -1,6 +1,6 @@
 package com.MejorProject.BookYourShow.RequestDTO;
 
-import jakarta.persistence.Column;
+import javax.persistence.*;
 import lombok.Data;
 
 import java.util.Date;

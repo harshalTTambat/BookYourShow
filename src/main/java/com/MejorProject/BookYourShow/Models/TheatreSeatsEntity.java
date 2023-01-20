@@ -1,7 +1,7 @@
 package com.MejorProject.BookYourShow.Models;
 
 import com.MejorProject.BookYourShow.Enums.SeatType;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
